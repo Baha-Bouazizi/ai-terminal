@@ -299,11 +299,11 @@ If you do not know something, say the data is not in your RAM yet but suggest as
       body.scrollTop = body.scrollHeight;
     }
 
-    function sendChip(el) {
+    window.sendChip = function(el) {
       query(el.textContent);
     }
 
-    function sendInput() {
+    window.sendInput = function() {
       var val = input.value.trim();
       if (val) {
         query(val);
