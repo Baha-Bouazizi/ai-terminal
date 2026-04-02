@@ -263,10 +263,10 @@
   <div class="footer">
     Built with ❤️ by <a href="https://github.com/Baha-Bouazizi" target="_blank">Baha Bouazizi</a> ·
     <a href="https://linkedin.com/in/baha-bouazizi" target="_blank">LinkedIn</a> ·
-    <a href="mailto:baha.bouazizi@isimg.tn">Email</a>
+    <a href="/cdn-cgi/l/email-protection#c5a7a4ada4eba7aab0a4bfacbfac85acb6aca8a2ebb1ab">Email</a>
   </div>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     const body = document.getElementById('termBody');
     const input = document.getElementById('termInput');
 
@@ -314,7 +314,12 @@ If you don't know something, say the data is not in your RAM yet but suggest ask
       try {
         const res = await fetch('https://api.anthropic.com/v1/messages', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: {
+            'Content-Type': 'application/json',
+            'x-api-key': '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',
+            'anthropic-version': '2023-06-01',
+            'anthropic-dangerous-direct-browser-access': 'true'
+          },
           body: JSON.stringify({
             model: 'claude-sonnet-4-20250514',
             max_tokens: 200,
@@ -350,13 +355,4 @@ If you don't know something, say the data is not in your RAM yet but suggest ask
     function sendInput() {
       if (input.value.trim()) {
         query(input.value.trim());
-        input.value = '';
-      }
-    }
-
-    input.addEventListener('keydown', e => {
-      if (e.key === 'Enter') sendInput();
-    });
-  </script>
-</body>
-</html>
+        inp
