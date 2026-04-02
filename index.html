@@ -312,13 +312,13 @@ If you don't know something, say the data is not in your RAM yet but suggest ask
       const typing = addLine('processing...', 'typing-line');
 
       try {
-        const res = await fetch('https://api.anthropic.com/v1/messages', {
+        const res = await fetch('https://baha-ai-backend.vercel.app/api/chat', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'x-api-key': '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',
-            'anthropic-version': '2023-06-01',
-            'anthropic-dangerous-direct-browser-access': 'true'
+
+
+
           },
           body: JSON.stringify({
             model: 'claude-sonnet-4-20250514',
