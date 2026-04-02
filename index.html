@@ -6,7 +6,6 @@
   <title>Chat with Baha's AI Twin</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
       background: #0d1117;
       font-family: 'Courier New', monospace;
@@ -17,12 +16,7 @@
       min-height: 100vh;
       padding: 20px;
     }
-
-    .page-header {
-      text-align: center;
-      margin-bottom: 24px;
-    }
-
+    .page-header { text-align: center; margin-bottom: 24px; }
     .page-header h1 {
       font-family: 'Courier New', monospace;
       font-size: 1.4rem;
@@ -30,13 +24,7 @@
       letter-spacing: 2px;
       font-weight: 400;
     }
-
-    .page-header p {
-      color: #8b949e;
-      font-size: 0.85rem;
-      margin-top: 6px;
-    }
-
+    .page-header p { color: #8b949e; font-size: 0.85rem; margin-top: 6px; }
     .avatar-row {
       display: flex;
       align-items: center;
@@ -44,7 +32,6 @@
       gap: 12px;
       margin-bottom: 20px;
     }
-
     .avatar {
       width: 48px;
       height: 48px;
@@ -58,7 +45,6 @@
       color: white;
       border: 2px solid #30363d;
     }
-
     .status-dot {
       width: 10px;
       height: 10px;
@@ -68,12 +54,7 @@
       display: inline-block;
       margin-right: 6px;
     }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
-    }
-
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
     .term-wrap {
       width: 100%;
       max-width: 720px;
@@ -83,7 +64,6 @@
       overflow: hidden;
       box-shadow: 0 20px 60px rgba(0,0,0,0.6);
     }
-
     .term-bar {
       background: #161b22;
       padding: 12px 18px;
@@ -92,9 +72,7 @@
       gap: 8px;
       border-bottom: 1px solid #30363d;
     }
-
     .dot { width: 13px; height: 13px; border-radius: 50%; }
-
     .term-title {
       color: #8b949e;
       font-size: 13px;
@@ -103,7 +81,6 @@
       text-align: center;
       letter-spacing: 1px;
     }
-
     .term-body {
       padding: 18px;
       min-height: 360px;
@@ -115,11 +92,9 @@
       scrollbar-width: thin;
       scrollbar-color: #30363d #0d1117;
     }
-
     .term-body::-webkit-scrollbar { width: 6px; }
     .term-body::-webkit-scrollbar-track { background: #0d1117; }
     .term-body::-webkit-scrollbar-thumb { background: #30363d; border-radius: 3px; }
-
     .line { font-size: 14px; line-height: 1.7; word-break: break-word; }
     .prompt-line { color: #58a6ff; }
     .prompt-line span { color: #3fb950; }
@@ -127,7 +102,6 @@
     .ai-line { color: #d2a8ff; padding-left: 22px; }
     .info-line { color: #ffa657; padding-left: 22px; }
     .typing-line { color: #8b949e; padding-left: 22px; font-style: italic; }
-
     .chips {
       display: flex;
       flex-wrap: wrap;
@@ -136,7 +110,6 @@
       background: #0d1117;
       border-top: 1px solid #21262d;
     }
-
     .chip {
       background: #161b22;
       border: 1px solid #30363d;
@@ -148,13 +121,7 @@
       font-family: 'Courier New', monospace;
       transition: all 0.2s;
     }
-
-    .chip:hover {
-      border-color: #58a6ff;
-      color: #58a6ff;
-      background: #0d1420;
-    }
-
+    .chip:hover { border-color: #58a6ff; color: #58a6ff; background: #0d1420; }
     .term-input-row {
       display: flex;
       align-items: center;
@@ -163,16 +130,13 @@
       border-top: 1px solid #30363d;
       background: #161b22;
     }
-
     .term-prefix {
       color: #58a6ff;
       font-family: 'Courier New', monospace;
       font-size: 14px;
       white-space: nowrap;
     }
-
     .term-prefix span { color: #3fb950; }
-
     #termInput {
       flex: 1;
       background: transparent;
@@ -183,9 +147,7 @@
       font-size: 14px;
       caret-color: #58a6ff;
     }
-
     #termInput::placeholder { color: #484f58; }
-
     .send-btn {
       background: #21262d;
       border: 1px solid #30363d;
@@ -197,20 +159,10 @@
       transition: all 0.2s;
       line-height: 1;
     }
-
     .send-btn:hover { border-color: #58a6ff; color: #58a6ff; }
-
-    .footer {
-      margin-top: 20px;
-      text-align: center;
-      font-size: 12px;
-      color: #484f58;
-    }
-
+    .footer { margin-top: 20px; text-align: center; font-size: 12px; color: #484f58; }
     .footer a { color: #8b949e; text-decoration: none; }
     .footer a:hover { color: #58a6ff; }
-
-    @keyframes blink { 50% { opacity: 0; } }
   </style>
 </head>
 <body>
@@ -243,7 +195,7 @@
       <div class="line" style="color:#d2a8ff; padding-left:22px;">——————————————————————————————</div>
     </div>
 
-    <div class="chips" id="chips">
+    <div class="chips">
       <div class="chip" onclick="sendChip(this)">whoami</div>
       <div class="chip" onclick="sendChip(this)">cat tech_stack.txt</div>
       <div class="chip" onclick="sendChip(this)">ls projects/</div>
@@ -263,10 +215,10 @@
   <div class="footer">
     Built with ❤️ by <a href="https://github.com/Baha-Bouazizi" target="_blank">Baha Bouazizi</a> ·
     <a href="https://linkedin.com/in/baha-bouazizi" target="_blank">LinkedIn</a> ·
-    <a href="/cdn-cgi/l/email-protection#c5a7a4ada4eba7aab0a4bfacbfac85acb6aca8a2ebb1ab">Email</a>
+    <a href="mailto:baha.bouazizi@isimg.tn">Email</a>
   </div>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     const body = document.getElementById('termBody');
     const input = document.getElementById('termInput');
 
@@ -295,13 +247,12 @@ Facts about Baha:
 - Open to job opportunities and internships — contact via email or LinkedIn
 
 If asked about hiring or collaboration, say he is open to exciting opportunities and to reach out via email or LinkedIn.
-If you don't know something, say the data is not in your RAM yet but suggest asking something else.`;
+If you do not know something, say the data is not in your RAM yet but suggest asking something else.`;
 
-    function addLine(text, cls, isHTML = false) {
+    function addLine(text, cls) {
       const div = document.createElement('div');
       div.className = 'line ' + cls;
-      if (isHTML) div.innerHTML = text;
-      else div.textContent = text;
+      div.textContent = text;
       body.appendChild(div);
       body.scrollTop = body.scrollHeight;
       return div;
@@ -314,12 +265,7 @@ If you don't know something, say the data is not in your RAM yet but suggest ask
       try {
         const res = await fetch('https://baha-ai-backend.vercel.app/api/chat', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-
-
-
-          },
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             model: 'claude-sonnet-4-20250514',
             max_tokens: 200,
@@ -336,13 +282,18 @@ If you don't know something, say the data is not in your RAM yet but suggest ask
           return;
         }
 
-        const reply = data.content?.map(b => b.text || '').join('') || 'No response.';
-        const lines = reply.trim().split('\n').filter(l => l.trim());
-        lines.forEach(l => addLine(l, 'ai-line'));
+        const reply = data.content && data.content.map(function(b) { return b.text || ''; }).join('');
+        if (reply) {
+          reply.trim().split('\n').filter(function(l) { return l.trim(); }).forEach(function(l) {
+            addLine(l, 'ai-line');
+          });
+        } else {
+          addLine('No response received.', 'info-line');
+        }
 
       } catch (e) {
         typing.remove();
-        addLine('Connection error. Check your network.', 'info-line');
+        addLine('Connection error: ' + e.message, 'info-line');
       }
 
       body.scrollTop = body.scrollHeight;
@@ -353,6 +304,16 @@ If you don't know something, say the data is not in your RAM yet but suggest ask
     }
 
     function sendInput() {
-      if (input.value.trim()) {
-        query(input.value.trim());
-        inp
+      var val = input.value.trim();
+      if (val) {
+        query(val);
+        input.value = '';
+      }
+    }
+
+    input.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') sendInput();
+    });
+  </script>
+</body>
+</html>
